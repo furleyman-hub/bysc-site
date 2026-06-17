@@ -1,12 +1,12 @@
 ---
 title: "About BYSC"
-subtitle: "Bedford Youth Soccer Club has been a cornerstone of our community for over 30 years, helping young players grow both on and off the field."
+subtitle: "Serving the Bedford, NY community since 1972."
 description: "Learn about Bedford Youth Soccer Club's mission, history, values, and leadership."
 ---
 
 ## Our Mission
 
-Bedford Youth Soccer Club (BYSC) is a non-profit, volunteer-run organization dedicated to providing a positive, fun, and educational soccer experience for children in Bedford and the surrounding communities.
+Bedford Youth Soccer Club (BYSC) is a non-profit, volunteer-run organization dedicated to providing a positive, fun, and educational soccer experience for children in Bedford, NY and the surrounding communities.
 
 We believe that soccer is more than just a sport — it's a vehicle for building confidence, teamwork, discipline, and lasting friendships. Our goal is to develop the whole player: athlete, teammate, and community member.
 
@@ -47,23 +47,33 @@ We believe that soccer is more than just a sport — it's a vehicle for building
 
 ## Our History
 
-BYSC was founded over 30 years ago by a small group of parents who wanted to give their children a safe, organized place to play soccer. What started as a handful of recreational teams has grown into a thriving club with hundreds of players across dozens of teams.
+BYSC was founded in 1972 by a group of parents who wanted to give their children a safe, organized place to play soccer in the Bedford community. Over more than 50 years, what started as a handful of recreational teams has grown into a thriving club with hundreds of players across dozens of teams.
 
-Over the decades, BYSC has produced players who have gone on to play at the high school, collegiate, and professional levels — but more importantly, we've helped thousands of kids develop the character, resilience, and love of the game that stays with them for life.
+BYSC has helped thousands of kids develop the character, resilience, and love of the game that stays with them for life — and produced players who have gone on to compete at the high school and collegiate levels.
+
+## Where We Play
+
+BYSC teams play and practice at the following fields in Bedford, NY:
+
+- **Bedford Hills Memorial Park** — Bedford Hills, NY
+- **Bedford Village Memorial Park** — Bedford Village, NY
 
 ## Affiliations
 
 BYSC is affiliated with the following organizations:
 
-- **Massachusetts Youth Soccer Association (MYSA)**
+- **Westchester Youth Soccer League (WYSL)**
 - **US Youth Soccer**
-- **Eastern Massachusetts Soccer Association**
 
 ## Board of Directors
 
-BYSC is run by a volunteer Board of Directors elected by club members. Our board oversees the club's programs, finances, and strategic direction. To contact the board or inquire about volunteering, please reach out at [info@bysc.org](mailto:info@bysc.org).
+BYSC is run by a volunteer Board of Directors elected by club members.
 
-*Board information updated annually. Current board members available upon request.*
+| Role | Name |
+|------|------|
+| President | Mike Fennessy |
+
+To contact the board or inquire about volunteering, please reach out at [info@bysc.org](mailto:info@bysc.org).
 
 ## Volunteer With Us
 
