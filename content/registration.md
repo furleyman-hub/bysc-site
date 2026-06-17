@@ -32,7 +32,7 @@ Registration for the **Fall 2026 In-House season** is now open. Season dates wil
   <div class="faq-item">
     <div class="faq-q">How much does it cost?</div>
     <div class="faq-a">
-      Recreational fees vary by age group. Exact fees are listed on the registration form. Financial assistance may be available — contact us at info@bysc.org.
+      Recreational fees vary by age group. Exact fees are listed on the registration form. Financial assistance may be available — contact us at bedfordsoccer1@gmail.com.
     </div>
   </div>
   <div class="faq-item">
@@ -63,4 +63,4 @@ Registration for the **Fall 2026 In-House season** is now open. Season dates wil
 
 ## Need Help?
 
-Contact us at [info@bysc.org](mailto:info@bysc.org) and we'll be happy to answer any questions.
+Contact us at [bedfordsoccer1@gmail.com](mailto:bedfordsoccer1@gmail.com) and we'll be happy to answer any questions.

@@ -65,18 +65,21 @@ BYSC is affiliated with the following organizations:
 - **Westchester Youth Soccer League (WYSL)**
 - **US Youth Soccer**
 
-## Board of Directors
+## Board of Directors & Staff
 
-BYSC is run by a volunteer Board of Directors elected by club members.
+BYSC is run by a volunteer Board of Directors and a dedicated administrative team.
 
-| Role | Name |
-|------|------|
-| President | Mike Fennessy |
+| Role | Name | Contact |
+|------|------|---------|
+| President | Mike Fennessy | [mfenn@ix.netcom.com](mailto:mfenn@ix.netcom.com) |
+| Club Administrator | Ann Haney Lane | [bedfordsoccer1@gmail.com](mailto:bedfordsoccer1@gmail.com) |
+| BYSC Registrar | Mike Fennessy | [mfenn@ix.netcom.com](mailto:mfenn@ix.netcom.com) |
+| Travel Coordinator | Vincent Kwarula | [bysctravel15@gmail.com](mailto:bysctravel15@gmail.com) |
 
-To contact the board or inquire about volunteering, please reach out at [info@bysc.org](mailto:info@bysc.org).
+For general inquiries, email [bedfordsoccer1@gmail.com](mailto:bedfordsoccer1@gmail.com).
 
 ## Volunteer With Us
 
 BYSC is only possible because of our incredible volunteers — coaches, referees, board members, and field assistants. If you're interested in volunteering, we'd love to hear from you. No experience is necessary for many roles; we provide training and support.
 
-Contact us at [info@bysc.org](mailto:info@bysc.org) to learn more.
+Contact us at [bedfordsoccer1@gmail.com](mailto:bedfordsoccer1@gmail.com) to learn more.

@@ -9,9 +9,9 @@ enableEmoji = true
   clubAbbr      = "BYSC"
   tagline       = "Developing Players, Building Character"
   description   = "Bedford Youth Soccer Club (BYSC) offers recreational and competitive soccer programs for players ages 4–19 in the Bedford community."
-  email         = "info@bysc.org"
+  email         = "bedfordsoccer1@gmail.com"
   phone         = ""
-  address       = "Bedford, NY"
+  address       = "Bedford, NY 10506"
   facebook      = ""
   instagram     = ""
   twitter       = ""
@@ -25,25 +25,30 @@ enableEmoji = true
     url        = "/about/"
     weight     = 1
   [[menu.main]]
+    identifier = "coaches"
+    name       = "Coaches"
+    url        = "/coaches/"
+    weight     = 2
+  [[menu.main]]
     identifier = "programs"
     name       = "Programs"
     url        = "/programs/"
-    weight     = 2
+    weight     = 3
   [[menu.main]]
     identifier = "schedule"
     name       = "Schedule"
     url        = "/schedule/"
-    weight     = 3
+    weight     = 4
   [[menu.main]]
     identifier = "news"
     name       = "News"
     url        = "/news/"
-    weight     = 4
+    weight     = 5
   [[menu.main]]
     identifier = "registration"
     name       = "Register"
     url        = "/registration/"
-    weight     = 5
+    weight     = 6
 
 [markup.goldmark.renderer]
   unsafe = true

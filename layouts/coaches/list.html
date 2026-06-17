@@ -1,0 +1,28 @@
+{{ define "main" }}
+<div class="page-hero">
+  <div class="container">
+    <p class="page-hero__eyebrow">Our Staff</p>
+    <h1 class="page-hero__title">{{ .Title }}</h1>
+    {{ with .Params.subtitle }}<p class="page-hero__subtitle">{{ . }}</p>{{ end }}
+  </div>
+</div>
+
+<div class="section">
+  <div class="container">
+    <div class="coach-grid">
+      {{ range sort .Pages "Params.weight" }}
+      <div class="coach-card">
+        <div class="coach-card__header">
+          <div class="coach-card__avatar">{{ substr .Title 0 1 }}</div>
+          <div class="coach-card__header-text">
+            <h2 class="coach-card__name">{{ .Title }}</h2>
+            {{ with .Params.role }}<p class="coach-card__role">{{ . }}</p>{{ end }}
+          </div>
+        </div>
+        <div class="coach-card__bio">{{ .Content }}</div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</div>
+{{ end }}
