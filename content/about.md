@@ -15,33 +15,43 @@ We believe that soccer is more than just a sport — it's a vehicle for building
 <div class="values-grid">
   <div class="value-card">
     <div class="value-card__icon">🤝</div>
-    <div class="value-card__title">Teamwork</div>
-    <div class="value-card__desc">We win together and grow together. Every player has a role that matters.</div>
+    <div class="value-card__title">Respect</div>
+    <div class="value-card__desc">Players, coaches, opponents, referees, and fans treat each other with respect and empathy at all times.</div>
+  </div>
+  <div class="value-card">
+    <div class="value-card__icon">🛡️</div>
+    <div class="value-card__title">Safety</div>
+    <div class="value-card__desc">We create an environment where every player feels physically and emotionally safe to learn and grow.</div>
   </div>
   <div class="value-card">
     <div class="value-card__icon">⭐</div>
-    <div class="value-card__title">Excellence</div>
-    <div class="value-card__desc">We encourage every player to strive for their personal best on and off the pitch.</div>
+    <div class="value-card__title">Leadership</div>
+    <div class="value-card__desc">We develop leaders on and off the field — players who inspire and elevate those around them.</div>
+  </div>
+  <div class="value-card">
+    <div class="value-card__icon">💪</div>
+    <div class="value-card__title">Hard Work</div>
+    <div class="value-card__desc">We encourage every player to give their best effort every session, every game, every season.</div>
+  </div>
+  <div class="value-card">
+    <div class="value-card__icon">🔥</div>
+    <div class="value-card__title">Passion</div>
+    <div class="value-card__desc">We love the beautiful game and we share that love with every player who joins our club.</div>
+  </div>
+  <div class="value-card">
+    <div class="value-card__icon">🙏</div>
+    <div class="value-card__title">Humility</div>
+    <div class="value-card__desc">We win and lose with grace, always putting the team ahead of individual glory.</div>
+  </div>
+  <div class="value-card">
+    <div class="value-card__icon">✅</div>
+    <div class="value-card__title">Integrity</div>
+    <div class="value-card__desc">We do the right thing — on the field and in the community — even when no one is watching.</div>
   </div>
   <div class="value-card">
     <div class="value-card__icon">🎉</div>
     <div class="value-card__title">Fun</div>
-    <div class="value-card__desc">Soccer should be enjoyable. We create an atmosphere where kids love to play.</div>
-  </div>
-  <div class="value-card">
-    <div class="value-card__icon">💪</div>
-    <div class="value-card__title">Respect</div>
-    <div class="value-card__desc">We respect opponents, referees, coaches, and each other at all times.</div>
-  </div>
-  <div class="value-card">
-    <div class="value-card__icon">🏘️</div>
-    <div class="value-card__title">Community</div>
-    <div class="value-card__desc">BYSC is a family. We support and celebrate every member of our community.</div>
-  </div>
-  <div class="value-card">
-    <div class="value-card__icon">🌱</div>
-    <div class="value-card__title">Development</div>
-    <div class="value-card__desc">Skill-building is a journey. We meet every player at their level and help them grow.</div>
+    <div class="value-card__desc">Soccer should be joyful. We create an atmosphere where kids love to play and keep coming back.</div>
   </div>
 </div>
 
