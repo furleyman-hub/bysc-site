@@ -15,7 +15,7 @@ backend:
   repo: furleyman-hub/bysc-site
   branch: main
   auth_type: pkce
-  app_id: YOUR_GITHUB_OAUTH_CLIENT_ID   # <-- replace this
+  app_id: Ov23liD8gClpPZQFmGxx   # <-- replace this
 
 media_folder: "static/images/uploads"
 public_folder: "/images/uploads"
