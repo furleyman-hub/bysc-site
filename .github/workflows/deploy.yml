@@ -29,7 +29,7 @@ jobs:
           username:  ${{ secrets.FTP_USERNAME }}
           password:  ${{ secrets.FTP_PASSWORD }}
           local-dir: ./public/
-          server-dir: /julianfox.com/bysc/   # subdomain root for bysc.julianfox.com
+          server-dir: /bysc/   # FTP chroot root is julianfox.com/, so bysc/ is at root
           # Files that exist on the server but NOT in the build will be deleted.
           # Set dangerous-clean-slate to false if you have non-Hugo files on the server.
           dangerous-clean-slate: false
