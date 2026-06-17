@@ -1,0 +1,71 @@
+{{ define "main" }}
+<div class="page-hero">
+  <div class="container">
+    <span class="page-hero__eyebrow">Join BYSC</span>
+    <h1 class="page-hero__title">{{ .Title }}</h1>
+    {{ with .Params.subtitle }}<p class="page-hero__subtitle">{{ . }}</p>{{ end }}
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+
+    <!-- Registration status banner -->
+    {{ if .Params.registration_open }}
+    <div style="background:var(--c-primary-pale);border:2px solid var(--c-primary);border-radius:var(--radius-lg);padding:1.5rem 2rem;margin-bottom:var(--space-lg);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+      <div>
+        <p style="font-family:var(--font-heading);font-weight:700;font-size:1.1rem;color:var(--c-primary);margin:0;">🎉 Registration is Open!</p>
+        <p style="color:var(--c-text-muted);font-size:.9rem;margin:0;">Spots fill quickly — register today to secure your child's place.</p>
+      </div>
+      {{ with .Params.registration_url }}
+      <a href="{{ . }}" class="btn btn--green btn--lg" target="_blank" rel="noopener">Register Now →</a>
+      {{ end }}
+    </div>
+    {{ else }}
+    <div style="background:var(--c-gray-100);border:1px solid var(--c-gray-200);border-radius:var(--radius-lg);padding:1.5rem 2rem;margin-bottom:var(--space-lg);text-align:center;">
+      <p style="font-family:var(--font-heading);font-weight:700;font-size:1rem;color:var(--c-text-muted);margin:0;">Registration is not currently open. Check the <a href="/news/">News page</a> for upcoming registration announcements.</p>
+    </div>
+    {{ end }}
+
+    <!-- Info cards -->
+    <div class="reg-info-grid">
+      <div class="reg-info-card">
+        <div class="reg-info-card__icon">📅</div>
+        <div class="reg-info-card__title">Two Seasons</div>
+        <div class="reg-info-card__desc">Spring (March–May) and Fall (September–November). Register separately for each season.</div>
+      </div>
+      <div class="reg-info-card">
+        <div class="reg-info-card__icon">🧒</div>
+        <div class="reg-info-card__title">Ages 4–19</div>
+        <div class="reg-info-card__desc">Programs for every age group from tiny tots to high school. Find the right fit on our Programs page.</div>
+      </div>
+      <div class="reg-info-card">
+        <div class="reg-info-card__icon">💳</div>
+        <div class="reg-info-card__title">Online Payment</div>
+        <div class="reg-info-card__desc">Registration fees are paid securely online. Financial assistance is available — just ask.</div>
+      </div>
+      <div class="reg-info-card">
+        <div class="reg-info-card__icon">✅</div>
+        <div class="reg-info-card__title">No Tryouts (Rec)</div>
+        <div class="reg-info-card__desc">All recreational programs are open enrollment — no tryouts, no experience required.</div>
+      </div>
+    </div>
+
+    <!-- Page body (FAQ etc.) -->
+    <div class="content-wrap" style="padding-top:0;max-width:100%;">
+      {{ .Content }}
+    </div>
+
+    <!-- Bottom CTA -->
+    {{ if .Params.registration_open }}
+    <div style="text-align:center;margin-top:var(--space-xl);padding:3rem;background:var(--c-primary-pale);border-radius:var(--radius-lg);">
+      <h3 style="color:var(--c-primary);margin-bottom:.75rem;">Ready to join the team?</h3>
+      {{ with .Params.registration_url }}
+      <a href="{{ . }}" class="btn btn--green btn--lg" target="_blank" rel="noopener">Register Now →</a>
+      {{ end }}
+    </div>
+    {{ end }}
+
+  </div>
+</section>
+{{ end }}

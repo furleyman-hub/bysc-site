@@ -1,0 +1,27 @@
+<header class="navbar" role="banner">
+  <div class="container">
+    <div class="navbar__inner">
+      <a href="/" class="navbar__logo" aria-label="{{ .Site.Title }} home">
+        <div class="navbar__logo-badge">BYSC</div>
+        <div class="navbar__logo-text">
+          <span class="navbar__logo-name">Bedford Youth SC</span>
+          <span class="navbar__logo-sub">{{ .Site.Params.tagline }}</span>
+        </div>
+      </a>
+
+      <button class="navbar__toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="navbar__menu" role="list">
+        {{ range .Site.Menus.main }}
+          {{ if eq .Identifier "registration" }}
+            <li><a href="{{ .URL }}" class="navbar__cta">{{ .Name }}</a></li>
+          {{ else }}
+            <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+          {{ end }}
+        {{ end }}
+      </ul>
+    </div>
+  </div>
+</header>

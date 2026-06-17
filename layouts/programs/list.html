@@ -1,0 +1,74 @@
+{{ define "main" }}
+<div class="page-hero">
+  <div class="container">
+    <span class="page-hero__eyebrow">BYSC Programs</span>
+    <h1 class="page-hero__title">Programs &amp; Teams</h1>
+    <p class="page-hero__subtitle">Recreational and competitive soccer for players ages 4–19. Find the right fit for your child.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    {{ .Content }}
+
+    {{ $all := where .Pages ".Params.draft" "ne" true }}
+    {{ $all = $all.ByWeight }}
+
+    {{ $rec  := where $all ".Params.program_type" "Recreational" }}
+    {{ $trav := where $all ".Params.program_type" "Travel / Competitive" }}
+    {{ $spec := where $all ".Params.program_type" "Special Programs" }}
+
+    {{ if $rec }}
+    <div class="programs-section-title">Recreational Programs</div>
+    <div class="card-grid" style="margin-bottom:var(--space-xl);">
+      {{ range $rec }}
+      <div class="prog-card">
+        <div class="prog-card__icon">{{ with .Params.icon }}{{ . }}{{ else }}⚽{{ end }}</div>
+        <div class="prog-card__age">{{ with .Params.age }}{{ . }}{{ end }}</div>
+        <h2 class="prog-card__title">{{ .Title }}</h2>
+        <p class="prog-card__desc">{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary | truncate 160 }}{{ end }}</p>
+        {{ if .Content }}<a href="{{ .Permalink }}" class="card__link" style="margin-top:1rem;display:inline-flex;">Details →</a>{{ end }}
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
+
+    {{ if $trav }}
+    <div class="programs-section-title">Travel &amp; Competitive Programs</div>
+    <div class="card-grid" style="margin-bottom:var(--space-xl);">
+      {{ range $trav }}
+      <div class="prog-card">
+        <div class="prog-card__icon">{{ with .Params.icon }}{{ . }}{{ else }}🏆{{ end }}</div>
+        <div class="prog-card__age">{{ with .Params.age }}{{ . }}{{ end }}</div>
+        <h2 class="prog-card__title">{{ .Title }}</h2>
+        <p class="prog-card__desc">{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary | truncate 160 }}{{ end }}</p>
+        {{ if .Content }}<a href="{{ .Permalink }}" class="card__link" style="margin-top:1rem;display:inline-flex;">Details →</a>{{ end }}
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
+
+    {{ if $spec }}
+    <div class="programs-section-title">Special Programs</div>
+    <div class="card-grid">
+      {{ range $spec }}
+      <div class="prog-card">
+        <div class="prog-card__icon">{{ with .Params.icon }}{{ . }}{{ else }}⭐{{ end }}</div>
+        <div class="prog-card__age">{{ with .Params.age }}{{ . }}{{ end }}</div>
+        <h2 class="prog-card__title">{{ .Title }}</h2>
+        <p class="prog-card__desc">{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary | truncate 160 }}{{ end }}</p>
+        {{ if .Content }}<a href="{{ .Permalink }}" class="card__link" style="margin-top:1rem;display:inline-flex;">Details →</a>{{ end }}
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
+
+    <!-- CTA -->
+    <div style="margin-top:var(--space-xl);text-align:center;padding:3rem;background:var(--c-primary-pale);border-radius:var(--radius-lg);">
+      <h3 style="font-size:1.5rem;color:var(--c-primary);margin-bottom:.75rem;">Ready to Register?</h3>
+      <p style="color:var(--c-text-muted);margin-bottom:1.5rem;">Spots fill quickly each season. Secure your child's place on the team today.</p>
+      <a href="/registration/" class="btn btn--green">Registration Info →</a>
+    </div>
+  </div>
+</section>
+{{ end }}

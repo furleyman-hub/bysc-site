@@ -1,0 +1,75 @@
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid">
+
+      <!-- Brand -->
+      <div>
+        <div class="footer__logo">
+          <div class="footer__logo-badge">BYSC</div>
+          <span class="footer__logo-name">Bedford Youth Soccer Club</span>
+        </div>
+        <p class="footer__tagline">{{ .Site.Params.tagline }}<br>Proudly serving Bedford and surrounding communities.</p>
+        {{ if or .Site.Params.facebook .Site.Params.instagram .Site.Params.twitter }}
+        <div class="footer__social">
+          {{ with .Site.Params.facebook }}<a href="{{ . }}" aria-label="Facebook" target="_blank" rel="noopener">f</a>{{ end }}
+          {{ with .Site.Params.instagram }}<a href="{{ . }}" aria-label="Instagram" target="_blank" rel="noopener">in</a>{{ end }}
+          {{ with .Site.Params.twitter }}<a href="{{ . }}" aria-label="Twitter/X" target="_blank" rel="noopener">X</a>{{ end }}
+        </div>
+        {{ end }}
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <p class="footer__col-title">Quick Links</p>
+        <ul class="footer__links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about/">About BYSC</a></li>
+          <li><a href="/programs/">Programs &amp; Teams</a></li>
+          <li><a href="/schedule/">Schedule</a></li>
+          <li><a href="/news/">News</a></li>
+          <li><a href="/registration/">Register</a></li>
+        </ul>
+      </div>
+
+      <!-- Programs -->
+      <div>
+        <p class="footer__col-title">Programs</p>
+        <ul class="footer__links">
+          <li><a href="/programs/">Recreational Soccer</a></li>
+          <li><a href="/programs/">Travel / Competitive</a></li>
+          <li><a href="/programs/">Ages 4–19</a></li>
+          <li><a href="/registration/">How to Register</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <p class="footer__col-title">Contact</p>
+        {{ with .Site.Params.email }}
+        <div class="footer__contact-item">
+          <span>✉</span>
+          <a href="mailto:{{ . }}">{{ . }}</a>
+        </div>
+        {{ end }}
+        {{ with .Site.Params.phone }}
+        <div class="footer__contact-item">
+          <span>📞</span>
+          <a href="tel:{{ . }}">{{ . }}</a>
+        </div>
+        {{ end }}
+        {{ with .Site.Params.address }}
+        <div class="footer__contact-item">
+          <span>📍</span>
+          <span>{{ . }}</span>
+        </div>
+        {{ end }}
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <span>&copy; {{ now.Year }} Bedford Youth Soccer Club. All rights reserved.</span>
+      <span>Built with ❤️ for the BYSC community</span>
+    </div>
+  </div>
+</footer>

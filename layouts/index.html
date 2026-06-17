@@ -1,0 +1,171 @@
+{{ define "main" }}
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <div class="hero__bg"></div>
+  <div class="hero__pattern"></div>
+  <div class="container">
+    <div class="hero__content">
+      <div class="hero__eyebrow">⚽ Bedford Youth Soccer Club</div>
+      <h1 class="hero__title">
+        {{ $title := .Params.hero_title | default "Developing Players, Building Character" }}
+        {{ $word  := .Params.hero_highlight | default "Players" }}
+        {{ replace $title $word (printf "<span>%s</span>" $word) | safeHTML }}
+      </h1>
+      <p class="hero__subtitle">
+        {{ with .Params.hero_subtitle }}{{ . }}{{ else }}BYSC provides recreational and competitive soccer programs for players ages 4–19 in the Bedford community. Join hundreds of young athletes learning the beautiful game.{{ end }}
+      </p>
+      <div class="hero__actions">
+        <a href="/registration/" class="btn btn--primary btn--lg">Register Now →</a>
+        <a href="/programs/" class="btn btn--outline btn--lg">View Programs</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero__scroll-hint">
+    <span>Scroll</span>
+    <div class="hero__scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- ========== STATS BAR ========== -->
+<div class="stats">
+  <div class="container">
+    <div class="stats__grid">
+      <div>
+        <div class="stats__num">{{ with .Params.stat_players }}{{ . }}{{ else }}500+{{ end }}</div>
+        <div class="stats__label">Players</div>
+      </div>
+      <div>
+        <div class="stats__num">{{ with .Params.stat_teams }}{{ . }}{{ else }}40+{{ end }}</div>
+        <div class="stats__label">Teams</div>
+      </div>
+      <div>
+        <div class="stats__num">{{ with .Params.stat_coaches }}{{ . }}{{ else }}50+{{ end }}</div>
+        <div class="stats__label">Coaches</div>
+      </div>
+      <div>
+        <div class="stats__num">{{ with .Params.stat_years }}{{ . }}{{ else }}30+{{ end }}</div>
+        <div class="stats__label">Years of Soccer</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== LATEST NEWS ========== -->
+{{ $news := where .Site.RegularPages "Section" "news" }}
+{{ $news = where $news ".Params.draft" "ne" true }}
+{{ $news = $news.ByDate.Reverse }}
+{{ if $news }}
+<section class="section section--alt">
+  <div class="container">
+    <div class="section__header">
+      <span class="section__eyebrow">Latest Updates</span>
+      <h2 class="section__title">News &amp; Announcements</h2>
+      <p class="section__subtitle">Stay up to date with everything happening at BYSC.</p>
+    </div>
+    <div class="news-layout">
+      {{ with index $news 0 }}
+      <article class="news-featured">
+        <div class="news-featured__thumb">⚽</div>
+        <div class="news-featured__body">
+          {{ with .Params.category }}<span class="tag">{{ . }}</span>{{ end }}
+          <h3 class="card__title" style="font-size:1.35rem;margin-top:.6rem;margin-bottom:.65rem;">
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+          </h3>
+          <p style="font-size:.9rem;color:var(--c-text-muted);line-height:1.7;">
+            {{ with .Params.summary }}{{ . }}{{ else }}{{ .Summary | truncate 160 }}{{ end }}
+          </p>
+          <p style="margin-top:1rem;font-family:var(--font-heading);font-size:.78rem;color:var(--c-text-muted);">
+            {{ .Date.Format "January 2, 2006" }}
+          </p>
+          <a href="{{ .Permalink }}" class="card__link" style="margin-top:.75rem;display:inline-flex;">Read More →</a>
+        </div>
+      </article>
+      {{ end }}
+
+      <aside class="news-sidebar">
+        {{ range after 1 (first 4 $news) }}
+        <a href="{{ .Permalink }}" class="news-mini" style="text-decoration:none;color:inherit;display:block;">
+          <div class="news-mini__meta">
+            {{ with .Params.category }}{{ . }} · {{ end }}{{ .Date.Format "Jan 2, 2006" }}
+          </div>
+          <div class="news-mini__title">{{ .Title }}</div>
+        </a>
+        {{ end }}
+        <a href="/news/" class="btn btn--green" style="text-align:center;justify-content:center;">All News →</a>
+      </aside>
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<!-- ========== PROGRAMS OVERVIEW ========== -->
+{{ $programs := where .Site.RegularPages "Section" "programs" }}
+{{ $programs = $programs.ByWeight }}
+{{ if $programs }}
+<section class="section">
+  <div class="container">
+    <div class="section__header">
+      <span class="section__eyebrow">Our Programs</span>
+      <h2 class="section__title">Something for Every Player</h2>
+      <p class="section__subtitle">From first-time kickers to competitive travel teams — BYSC has a program for every age and skill level.</p>
+    </div>
+    <div class="card-grid">
+      {{ range first 6 $programs }}
+      <div class="prog-card">
+        <div class="prog-card__icon">{{ with .Params.icon }}{{ . }}{{ else }}⚽{{ end }}</div>
+        <div class="prog-card__age">{{ with .Params.age }}{{ . }}{{ end }}</div>
+        <h3 class="prog-card__title">{{ .Title }}</h3>
+        <p class="prog-card__desc">{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary | truncate 120 }}{{ end }}</p>
+      </div>
+      {{ end }}
+    </div>
+    <div class="view-all">
+      <a href="/programs/" class="btn btn--green">View All Programs →</a>
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<!-- ========== SCHEDULE PREVIEW ========== -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section__header">
+      <span class="section__eyebrow">Schedule</span>
+      <h2 class="section__title">Upcoming Games &amp; Events</h2>
+      <p class="section__subtitle">Check the full schedule for practices, games, and club events.</p>
+    </div>
+    {{ $sched := .Site.GetPage "/schedule" }}
+    {{ if and $sched $sched.Params.calendar_embed_url }}
+      <div class="cal-embed">
+        <iframe src="{{ $sched.Params.calendar_embed_url }}" height="500" frameborder="0" scrolling="no" title="BYSC Schedule"></iframe>
+      </div>
+    {{ else }}
+      <div class="cal-placeholder">
+        <div class="cal-placeholder__icon">📅</div>
+        <h3 class="cal-placeholder__title">Full Schedule Available</h3>
+        <p class="cal-placeholder__text">View the complete game and practice schedule on our Schedule page. Connect your Google Calendar to stay updated.</p>
+        <a href="/schedule/" class="btn btn--green">View Schedule →</a>
+      </div>
+    {{ end }}
+  </div>
+</section>
+
+<!-- ========== REGISTRATION CTA ========== -->
+<section class="reg-cta">
+  <div class="reg-cta__inner container">
+    {{ $regOpen := .Site.Params.registrationOpen }}
+    {{ if $regOpen }}
+    <div class="reg-cta__badge">🎉 Registration is Open!</div>
+    {{ end }}
+    <h2 class="reg-cta__title">Ready to Join the Team?</h2>
+    <p class="reg-cta__text">Sign your child up for the upcoming season. Spots fill fast — secure your place today.</p>
+    {{ if and $regOpen .Site.Params.registrationURL }}
+      <a href="{{ .Site.Params.registrationURL }}" class="btn btn--primary btn--lg" target="_blank" rel="noopener">Register Now →</a>
+    {{ else }}
+      <a href="/registration/" class="btn btn--primary btn--lg">Learn About Registration →</a>
+    {{ end }}
+  </div>
+</section>
+
+{{ end }}

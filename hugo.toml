@@ -1,0 +1,54 @@
+baseURL = "https://bysc.tigertech.net/"
+languageCode = "en-us"
+title = "Bedford Youth Soccer Club"
+enableRobotsTXT = true
+enableEmoji = true
+
+[params]
+  clubName      = "Bedford Youth Soccer Club"
+  clubAbbr      = "BYSC"
+  tagline       = "Developing Players, Building Character"
+  description   = "Bedford Youth Soccer Club (BYSC) offers recreational and competitive soccer programs for players ages 4–19 in the Bedford community."
+  email         = "info@bysc.org"
+  phone         = ""
+  address       = "Bedford, MA"
+  facebook      = ""
+  instagram     = ""
+  twitter       = ""
+  registrationURL  = ""
+  registrationOpen = false
+
+[menu]
+  [[menu.main]]
+    identifier = "about"
+    name       = "About"
+    url        = "/about/"
+    weight     = 1
+  [[menu.main]]
+    identifier = "programs"
+    name       = "Programs"
+    url        = "/programs/"
+    weight     = 2
+  [[menu.main]]
+    identifier = "schedule"
+    name       = "Schedule"
+    url        = "/schedule/"
+    weight     = 3
+  [[menu.main]]
+    identifier = "news"
+    name       = "News"
+    url        = "/news/"
+    weight     = 4
+  [[menu.main]]
+    identifier = "registration"
+    name       = "Register"
+    url        = "/registration/"
+    weight     = 5
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[outputs]
+  home = ["HTML"]
+  page = ["HTML"]
+  section = ["HTML"]

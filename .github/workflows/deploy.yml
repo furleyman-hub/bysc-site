@@ -1,0 +1,35 @@
+name: Build & Deploy to TigerTech
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:   # allow manual trigger from GitHub Actions tab
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "latest"
+          extended: true     # needed for CSS asset pipeline
+
+      - name: Build site
+        run: hugo --minify
+
+      - name: Deploy via FTP to TigerTech
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server:    ${{ secrets.FTP_SERVER }}
+          username:  ${{ secrets.FTP_USERNAME }}
+          password:  ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./public/
+          server-dir: /public_html/   # adjust if your TigerTech root differs
+          # Files that exist on the server but NOT in the build will be deleted.
+          # Set dangerous-clean-slate to false if you have non-Hugo files on the server.
+          dangerous-clean-slate: false

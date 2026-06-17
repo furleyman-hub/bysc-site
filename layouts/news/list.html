@@ -1,0 +1,37 @@
+{{ define "main" }}
+<div class="page-hero">
+  <div class="container">
+    <span class="page-hero__eyebrow">BYSC Updates</span>
+    <h1 class="page-hero__title">News &amp; Announcements</h1>
+    <p class="page-hero__subtitle">Club news, registration updates, event announcements, and more.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    {{ $pages := where .Pages ".Params.draft" "ne" true }}
+    {{ $pages = $pages.ByDate.Reverse }}
+    {{ if $pages }}
+    <div class="news-list">
+      {{ range $pages }}
+      <article class="news-row">
+        <div class="news-row__date">
+          <div class="news-row__day">{{ .Date.Format "02" }}</div>
+          <div class="news-row__mon">{{ .Date.Format "Jan '06" }}</div>
+        </div>
+        <div class="news-row__body">
+          {{ with .Params.category }}<div class="news-row__cat">{{ . }}</div>{{ end }}
+          <h2 class="news-row__title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+          <p class="news-row__excerpt">
+            {{ with .Params.summary }}{{ . }}{{ else }}{{ .Summary | truncate 180 }}{{ end }}
+          </p>
+        </div>
+      </article>
+      {{ end }}
+    </div>
+    {{ else }}
+    <p class="text-center" style="color:var(--c-text-muted);padding:4rem 0;">No announcements yet — check back soon!</p>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

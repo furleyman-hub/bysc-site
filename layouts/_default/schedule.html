@@ -1,0 +1,32 @@
+{{ define "main" }}
+<div class="page-hero">
+  <div class="container">
+    <span class="page-hero__eyebrow">BYSC Schedule</span>
+    <h1 class="page-hero__title">{{ .Title }}</h1>
+    {{ with .Params.subtitle }}<p class="page-hero__subtitle">{{ . }}</p>{{ end }}
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    {{ with .Params.calendar_embed_url }}
+    <div class="cal-embed" style="margin-bottom:var(--space-xl);">
+      <iframe src="{{ . }}" height="600" frameborder="0" scrolling="no" title="BYSC Schedule Calendar"></iframe>
+    </div>
+    {{ else }}
+    <div class="cal-placeholder" style="margin-bottom:var(--space-xl);">
+      <div class="cal-placeholder__icon">📅</div>
+      <h2 class="cal-placeholder__title">Schedule Calendar</h2>
+      <p class="cal-placeholder__text">
+        The interactive schedule calendar will appear here once configured.
+        Club admins: add your Google Calendar embed URL via the <a href="/admin/">admin panel</a>.
+      </p>
+    </div>
+    {{ end }}
+
+    <div class="content-wrap" style="padding-top:0;">
+      {{ .Content }}
+    </div>
+  </div>
+</section>
+{{ end }}

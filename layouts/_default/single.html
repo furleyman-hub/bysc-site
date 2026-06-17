@@ -1,0 +1,20 @@
+{{ define "main" }}
+<div class="page-hero">
+  <div class="container">
+    {{ if .Parent }}
+    <div style="margin-bottom:.5rem;">
+      <a href="{{ .Parent.Permalink }}" style="color:rgba(255,255,255,.6);font-family:var(--font-heading);font-size:.78rem;">
+        ← {{ .Parent.Title }}
+      </a>
+    </div>
+    {{ end }}
+    <span class="page-hero__eyebrow">{{ .Section | humanize | title }}</span>
+    <h1 class="page-hero__title">{{ .Title }}</h1>
+    {{ with .Params.subtitle }}<p class="page-hero__subtitle">{{ . }}</p>{{ end }}
+  </div>
+</div>
+
+<div class="content-wrap">
+  {{ .Content }}
+</div>
+{{ end }}

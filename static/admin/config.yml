@@ -1,0 +1,139 @@
+# Sveltia CMS configuration for Bedford Youth Soccer Club
+# Docs: https://github.com/sveltia/sveltia-cms
+#
+# SETUP REQUIRED (one-time, done by site admin):
+# 1. Go to github.com → Settings → Developer settings → OAuth Apps → New OAuth App
+# 2. Application name: BYSC Website CMS
+# 3. Homepage URL: https://bysc.tigertech.net
+# 4. Authorization callback URL: https://bysc.tigertech.net/admin/
+# 5. Click "Register application", then copy the Client ID
+# 6. Replace YOUR_GITHUB_OAUTH_CLIENT_ID below with that Client ID
+# 7. Commit and push this file
+
+backend:
+  name: github
+  repo: furleyman-hub/bysc-site
+  branch: main
+  auth_type: pkce
+  app_id: YOUR_GITHUB_OAUTH_CLIENT_ID   # <-- replace this
+
+media_folder: "static/images/uploads"
+public_folder: "/images/uploads"
+
+# ─────────────────────────────────────────
+# COLLECTIONS
+# ─────────────────────────────────────────
+
+collections:
+
+  # ── News & Announcements ──────────────
+  - name: "news"
+    label: "News & Announcements"
+    label_singular: "News Post"
+    folder: "content/news"
+    create: true
+    delete: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    preview_path: "news/{{slug}}"
+    fields:
+      - { label: "Title",         name: title,    widget: string }
+      - { label: "Publish Date",  name: date,     widget: datetime }
+      - label: "Category"
+        name: category
+        widget: select
+        options: [Announcement, Registration, Tryouts, Events, Results, Schedules, General]
+        default: Announcement
+      - { label: "Short Summary (shown in listings)", name: summary, widget: text, required: false }
+      - { label: "Body",          name: body,     widget: markdown }
+      - { label: "Save as Draft (hide from site)", name: draft, widget: boolean, default: false }
+
+  # ── Programs ──────────────────────────
+  - name: "programs"
+    label: "Programs & Teams"
+    label_singular: "Program"
+    folder: "content/programs"
+    create: true
+    delete: true
+    fields:
+      - { label: "Program Name",   name: title,        widget: string }
+      - { label: "Age Group",      name: age,          widget: string,  hint: 'e.g. "Ages 9–10"' }
+      - label: "Program Type"
+        name: program_type
+        widget: select
+        options: [Recreational, "Travel / Competitive", "Special Programs"]
+      - { label: "Icon (emoji)",   name: icon,         widget: string,  default: "⚽", hint: "Paste a single emoji" }
+      - { label: "Sort Order",     name: weight,       widget: number,  default: 10,  hint: "Lower numbers appear first" }
+      - { label: "Short Description (shown on cards)", name: description, widget: text }
+      - { label: "Full Details (optional body text)",  name: body,        widget: markdown, required: false }
+
+  # ── Static Pages ──────────────────────
+  - name: "pages"
+    label: "Pages"
+    files:
+
+      - label: "Home Page"
+        name: home
+        file: "content/_index.md"
+        fields:
+          - { label: "Hero Title",          name: hero_title,    widget: string,  hint: 'Full headline, e.g. "Developing Players, Building Character"' }
+          - { label: "Hero Highlighted Word", name: hero_highlight, widget: string,  default: "Players",
+              hint: "The one word in the title that appears in gold/accent color." }
+          - { label: "Hero Subtitle", name: hero_subtitle, widget: text }
+          - { label: "Stat — Players",  name: stat_players,  widget: string, default: "500+" }
+          - { label: "Stat — Teams",    name: stat_teams,    widget: string, default: "40+" }
+          - { label: "Stat — Coaches",  name: stat_coaches,  widget: string, default: "50+" }
+          - { label: "Stat — Years",    name: stat_years,    widget: string, default: "30+" }
+
+      - label: "About Page"
+        name: about
+        file: "content/about.md"
+        fields:
+          - { label: "Page Title",    name: title,    widget: string }
+          - { label: "Subtitle",      name: subtitle, widget: text, required: false }
+          - { label: "Body",          name: body,     widget: markdown }
+
+      - label: "Schedule Page"
+        name: schedule
+        file: "content/schedule.md"
+        fields:
+          - { label: "Page Title",    name: title,    widget: string }
+          - { label: "Subtitle",      name: subtitle, widget: text, required: false }
+          - label: "Google Calendar Embed URL"
+            name: calendar_embed_url
+            widget: string
+            required: false
+            hint: >
+              In Google Calendar → Settings → your calendar → "Integrate calendar" →
+              copy the "Embed code" src URL (starts with https://calendar.google.com/calendar/embed?...)
+          - { label: "Body / Notes", name: body, widget: markdown, required: false }
+
+      - label: "Registration Page"
+        name: registration
+        file: "content/registration.md"
+        fields:
+          - { label: "Page Title",      name: title,             widget: string }
+          - { label: "Subtitle",        name: subtitle,          widget: text,    required: false }
+          - { label: "Registration Open?", name: registration_open, widget: boolean, default: false }
+          - { label: "Registration URL",   name: registration_url,  widget: string,  required: false,
+              hint: "Link to your external registration platform (e.g. SportsConnect, TeamSnap, etc.)" }
+          - { label: "Body / FAQ",      name: body,              widget: markdown }
+
+  # ── Site Settings ─────────────────────
+  - name: "settings"
+    label: "Site Settings"
+    files:
+
+      - label: "Club Info & Contact"
+        name: general
+        file: "data/settings.yaml"
+        fields:
+          - { label: "Club Name",          name: club_name,         widget: string }
+          - { label: "Tagline / Motto",    name: tagline,           widget: string }
+          - { label: "Contact Email",      name: email,             widget: string }
+          - { label: "Phone (optional)",   name: phone,             widget: string, required: false }
+          - { label: "Address (optional)", name: address,           widget: string, required: false }
+          - { label: "Facebook URL",       name: facebook,          widget: string, required: false }
+          - { label: "Instagram URL",      name: instagram,         widget: string, required: false }
+          - { label: "Twitter/X URL",      name: twitter,           widget: string, required: false }
+          - { label: "Registration Open?", name: registration_open, widget: boolean, default: false }
+          - { label: "Registration URL",   name: registration_url,  widget: string, required: false }

@@ -1,0 +1,22 @@
+{{ define "main" }}
+<div class="page-hero">
+  <div class="container">
+    <div class="post-header">
+      <div class="post-header__meta">
+        <a href="/news/" style="color:rgba(255,255,255,.6);">← All News</a>
+        {{ with .Params.category }}<span class="tag tag--accent">{{ . }}</span>{{ end }}
+        <span>{{ .Date.Format "January 2, 2006" }}</span>
+      </div>
+      <h1 class="post-header__title">{{ .Title }}</h1>
+    </div>
+  </div>
+</div>
+
+<div class="content-wrap">
+  {{ .Content }}
+
+  <div style="margin-top:var(--space-xl);padding-top:var(--space-md);border-top:1px solid var(--c-gray-200);">
+    <a href="/news/" class="btn btn--green">← Back to News</a>
+  </div>
+</div>
+{{ end }}
